@@ -20,7 +20,7 @@ const About=()=>{
         </h1>
     
         <p className="mb-5 leading-relaxed">
-          I am  doing BS in computer science  and I'am web devaloper 
+          I am  doing BS in computer science  and I am web devaloper 
              or front end devaloper for 1 year, who creates professional responsive websites which improves the lives of people around me.
         </p>
         <p className="mb-5 leading-relaxed">
