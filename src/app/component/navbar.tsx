@@ -1,36 +1,53 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import { FaBeer } from 'react-icons/fa';
 import { AiOutlineCloudDownload } from "react-icons/ai";
-const Navbar=()=>{
-    return(
-        <div className="bg-white z-50 sticky top-0"><header className="text-gray-600 body-font">
-        <div className="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
-          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-           <Image src="/images/logo.jpg" alt="it mate" width={100} height={100}
-           className="w-[50px]"/>
-            <span className="ml-3 text-xl text-purple">Nida Tariq</span>
-          </a>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <Link href="/"className="mr-5 hover:text-purple-600">Home</Link>
-            <Link href="#About" className="mr-5 hover:text-purple-600">About</Link>
-            <Link href="#Skills" className="mr-5 hover:text-purple-600">Skills</Link>
-            <Link href="#Project" className="mr-5 hover:text-purple-600">Projects</Link>
-            <Link href="#Contact" className="mr-5 hover:text-purple-600">Contact</Link>
+
+const Navbar = () => {
+  return (
+    <div className="bg-gradient-to-r from-pink-600 via-white to-pink-600 backdrop-blur-sm z-50 sticky top-0 shadow-lg transition-all duration-300">
+      <header className="text-pink-700 body-font font-sans">
+        <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center justify-between">
+          
+          {/* Logo + Name */}
+          <Link href="/" className="flex items-center font-bold hover:text-pink-500 transition-all">
+            <Image
+              src="/images/logo.jpg"
+              alt="Syeda Faryal Logo"
+              width={50}
+              height={50}
+              className="w-[45px] h-[45px] object-contain"
+            />
+            <span className="ml-3 text-2xl tracking-wide font-extrabold text-pink-800 hover:text-pink-600 transition-all duration-300">
+              Syeda Faryal
+            </span>
+          </Link>
+
+          {/* Navigation Links */}
+          <nav className="flex flex-wrap items-center justify-center gap-6 mt-4 md:mt-0 text-base font-semibold text-pink-800">
+            {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
+              <Link
+                key={item}
+                href={item === "Home" ? "/" : `#${item}`}
+                className="relative group transition-all duration-300"
+              >
+                <span className="hover:text-pink-600">{item}</span>
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-600 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            ))}
           </nav>
-           <a href="/cv/cv.pdf">
-          <button className="inline-flex items-center bg-gray border-0 py-1 px-3 focus:outline-none hover:bg-purple-200 rounded text-base mt-4 md:mt-0">
-           
-            Download CV
-           <AiOutlineCloudDownload className="text-xl ml-2"/>
-         
-          </button>
+
+          {/* CV Download Button */}
+          <a href="/cv/cv.pdf" className="mt-4 md:mt-0">
+            <button className="inline-flex items-center bg-gradient-to-r from-pink-700 via-pink-500 to-pink-700 text-white font-bold border-0 py-2 px-4 rounded-full shadow-xl hover:scale-105 hover:shadow-pink-300 transition-all duration-300">
+              Download CV
+              <AiOutlineCloudDownload className="text-xl ml-2" />
+            </button>
           </a>
         </div>
       </header>
-      
-      </div>
-    )
-}
-export default Navbar
+    </div>
+  );
+};
+
+export default Navbar;

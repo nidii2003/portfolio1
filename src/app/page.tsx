@@ -5,6 +5,7 @@ import Project from "./project";
 import About from "./component/about";
 import Skills from "./skills";
 
+
 export default function Home() {
   return  (
     <div>
